@@ -1,0 +1,8 @@
+<div class="sub-navbar">
+  <a [routerLink]="['user-detail']" routerLinkActive="active-user-link">User Detail || </a>
+  <a [routerLink]="['user-edit-info']" routerLinkActive="active-user-link">Edit user info || </a>
+  <a [routerLink]="['user-orders']" routerLinkActive="active-user-link"> User orders ||</a>
+</div>
+<div class="user-content">
+  <router-outlet></router-outlet>
+</div>

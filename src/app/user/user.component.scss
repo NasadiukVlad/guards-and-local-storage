@@ -1,0 +1,21 @@
+.sub-navbar {
+  position: relative;
+  top: 2vh;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.user-content {
+  position: relative;
+  top: 3vh;
+  width: 30vw;
+  height: 30vh;
+  background: #f5f5f5;
+}
+
+.active-user-link {
+  color: red;
+  font-weight: 700;
+}
