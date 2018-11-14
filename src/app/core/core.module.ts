@@ -1,6 +1,5 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AboutComponent} from './components/about/about.component';
 import {HomeComponent} from './components/home/home.component';
 import {FormsModule} from '@angular/forms';
 
@@ -9,9 +8,9 @@ import {FormsModule} from '@angular/forms';
     CommonModule, FormsModule
   ],
   exports: [
-    AboutComponent, HomeComponent
+    HomeComponent
   ],
-  declarations: [AboutComponent, HomeComponent]
+  declarations: [HomeComponent]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

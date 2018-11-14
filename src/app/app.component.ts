@@ -18,7 +18,9 @@ export class AppComponent {
   constructor(private authService: AuthService,
               private userService: UserService) {
 
-    if (this.userService.getUser()) {
+    const currentUser = this.userService.getUser();
+    if (currentUser) {
+      this.currentUserRole = currentUser.role;
       this.isAuthorized = true;
     }
 

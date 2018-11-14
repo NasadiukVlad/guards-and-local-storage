@@ -1,6 +1,3 @@
-
-
-
 <div class="header">
   <img src="../assets/img/logo.png">
 
@@ -8,13 +5,10 @@
     <a [routerLink]="['']" routerLinkActive="active-link"
        [routerLinkActiveOptions]="{exact: true}">Home</a>
 
-    <a [routerLink]="['about']" routerLinkActive="active-link"
-       [queryParams]="{'secondWay': 100}">About</a>
+    <a  [routerLink]="['orders']" *ngIf="currentUserRole === userRole.ADMIN"
+       routerLinkActive="active-link">Orders</a>
 
-    <a *ngIf="currentUserRole !== userRole.CLIENT" [routerLink]="['order']"
-       routerLinkActive="active-link">Order</a>
-
-    <a [routerLink]="['user', 12]" routerLinkActive="active-link">User</a>
+    <a [routerLink]="['users']" routerLinkActive="active-link">Users</a>
   </div>
 
   <label *ngIf="isAuthorized" id="logout" (click)="onLogout()">Log out</label>

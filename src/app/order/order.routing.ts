@@ -1,15 +1,17 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {OrderComponent} from './order.component';
-import {OrderDataComponent} from './components/order-data/order-data.component';
 import {OrdersListComponent} from './components/orders-list/orders-list.component';
+import {AwayGuard} from '../core/guards/away.guard';
 
 const ORDER_ROUTES: Routes = [
   {
     path: '', component: OrderComponent, children: [
       {path: '', redirectTo: 'list'},
-      {path: 'list', component: OrdersListComponent},
-      {path: 'data/:id', component: OrderDataComponent},
+      {
+        path: 'list', component: OrdersListComponent,
+        canDeactivate: [AwayGuard]
+      },
     ]
   }
 ];

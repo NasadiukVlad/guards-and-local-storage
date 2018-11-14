@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
+import {ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
 import {UserService} from '../services/user.service';
 import {AuthService} from '../services/auth.service';
@@ -8,22 +8,21 @@ import {AuthService} from '../services/auth.service';
   providedIn: 'root'
 })
 export class AuthorizedUserGuard implements CanActivate {
+  private isAppInitialized: boolean;
 
-  constructor(private userService: UserService,
-              private router: Router,
-              private authService: AuthService) {}
+  constructor(private userService: UserService) {
+  }
 
   public canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     const currentUser = this.userService.getUser();
-    if (currentUser) {
+    if (currentUser && !this.isAppInitialized) {
       this.userService.resolveUserRoleDefaultPage(currentUser);
-      return true;
+      this.isAppInitialized = true;
     }
 
-    this.authService.logout();
-    return false;
+    return true;
   }
 }
