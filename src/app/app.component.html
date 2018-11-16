@@ -5,10 +5,11 @@
     <a [routerLink]="['']" routerLinkActive="active-link"
        [routerLinkActiveOptions]="{exact: true}">Home</a>
 
-    <a  [routerLink]="['orders']" *ngIf="currentUserRole === userRole.ADMIN"
+    <a [routerLink]="['orders']"
        routerLinkActive="active-link">Orders</a>
 
-    <a [routerLink]="['users']" routerLinkActive="active-link">Users</a>
+    <a [routerLink]="['users']" *ngIf="currentUserRole === userRole.ADMIN"
+       routerLinkActive="active-link">Users</a>
   </div>
 
   <label *ngIf="isAuthorized" id="logout" (click)="onLogout()">Log out</label>

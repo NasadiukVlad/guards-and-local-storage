@@ -22,6 +22,8 @@ export class AuthService {
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
       this.loginEventEmitter.emit(true);
       this.userService.resolveUserRoleDefaultPage(currentUser);
+    } else {
+      alert('Wrong credentials');
     }
   }
 
@@ -31,4 +33,5 @@ export class AuthService {
     this.loginEventEmitter.emit(false);
   }
 }
+
 

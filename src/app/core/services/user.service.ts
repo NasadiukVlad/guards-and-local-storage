@@ -34,7 +34,7 @@ export class UserService {
 
   public resolveUserRoleDefaultPage(user: User) {
     if (user.role === UserRole.CLIENT) {
-      this.router.navigate(['order', 'list']);
+      this.router.navigate(['orders', 'list']);
     } else {
       this.router.navigate(['users', 'list']);
     }

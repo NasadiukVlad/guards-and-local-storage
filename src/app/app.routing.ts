@@ -14,11 +14,11 @@ const ROUTES: Routes = [
   },
   {
     path: 'orders', loadChildren: 'app/order/order.module#OrderModule',
-    canActivate: [AuthGuard, AdminGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'users', loadChildren: 'app/user/user.module#UserModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard]
   },
   {
     path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule',
