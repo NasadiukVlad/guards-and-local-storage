@@ -4,7 +4,6 @@ import {HomeComponent} from './core/components/home/home.component';
 import {AuthGuard} from './core/guards/auth.guard';
 import {AdminGuard} from './core/guards/admin.guard';
 import {AuthorizedUserGuard} from './core/guards/authorized-user.guard';
-import {AwayGuard} from './core/guards/away.guard';
 
 
 const ROUTES: Routes = [
