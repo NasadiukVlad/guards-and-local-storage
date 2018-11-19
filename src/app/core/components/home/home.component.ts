@@ -7,19 +7,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
-  public orderId: number;
-
-  constructor(private router: Router) {}
-
-  public navigateToOrder() {
-    console.log(this.orderId);
-    this.router.navigate(['order-data', this.orderId]);
-  }
-
-  public navigateToAbout() {
-    this.router.navigate(['about'], {queryParams: {'customQuery': 6456, 'secondQueryParam': 200}});
-  }
 }
 
 
