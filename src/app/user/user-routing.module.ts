@@ -5,7 +5,8 @@ import {UsersListComponent} from './components/users-list/users-list.component';
 
 const USER_CHILD_ROUTES: Routes = [
   {
-    path: '', component: UserComponent, children: [
+    path: '', component: UserComponent,
+    children: [
       {path: '', redirectTo: 'list'},
       {path: 'list', component: UsersListComponent},
     ]
