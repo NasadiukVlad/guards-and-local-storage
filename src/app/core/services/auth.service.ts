@@ -1,14 +1,15 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {User} from '../../auth/models/user.model';
 import {UserService} from './user.service';
 import {Router} from '@angular/router';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public loginEventEmitter = new EventEmitter<boolean>();
+  public loginAction = new Subject<boolean>();
 
   constructor(private userService: UserService,
               private router: Router) {}
@@ -20,7 +21,7 @@ export class AuthService {
 
     if (currentUser) {
       localStorage.setItem('currentUser', JSON.stringify(currentUser));
-      this.loginEventEmitter.emit(true);
+      this.loginAction.next(true);
       this.userService.resolveUserRoleDefaultPage(currentUser);
     } else {
       alert('Wrong credentials');
@@ -30,7 +31,7 @@ export class AuthService {
   public logout() {
     localStorage.removeItem('currentUser');
     this.router.navigate(['/auth']);
-    this.loginEventEmitter.emit(false);
+    this.loginAction.next(false);
   }
 }
 

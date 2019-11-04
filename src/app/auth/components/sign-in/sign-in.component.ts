@@ -16,7 +16,7 @@ export class SignInComponent {
     this.buildForm();
 
     // prevent menu visibility issues
-    this.authService.loginEventEmitter.emit(false);
+    this.authService.loginAction.next(false);
   }
 
   public onSignIn() {
@@ -36,5 +36,7 @@ export class SignInComponent {
       });
   }
 }
+
+
 
 
